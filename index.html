@@ -89,42 +89,83 @@
                         Me especializo en tecnologías modernas y siempre estoy aprendiendo nuevas herramientas
                         para ofrecer las mejores experiencias a los usuarios.
                     </p>
-                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
-                        <div class="tech-badge">
-                            <span>HTML</span>
+                    
+                    <!-- Frontend Technologies -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold text-purple-300 mb-4">Frontend</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                            <div class="tech-badge">
+                                <span>HTML</span>
+                            </div>
+                            <div class="tech-badge">
+                                <span>CSS</span>
+                            </div>
+                            <div class="tech-badge">
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="tech-badge">
+                                <span>React</span>
+                            </div>
+                            <div class="tech-badge">
+                                <span>Vue</span>
+                            </div>
                         </div>
-                        <div class="tech-badge">
-                            <span>CSS</span>
+                    </div>
+
+                    <!-- Backend Technologies -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold text-purple-300 mb-4">Backend</h3>
+                        
+                        <!-- JavaScript Backend -->
+                        <div class="mb-4">
+                            <h4 class="text-lg font-medium text-gray-400 mb-3">JavaScript</h4>
+                            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-4">
+                                <div class="tech-badge">
+                                    <span>Node.js</span>
+                                </div>
+                                <div class="tech-badge">
+                                    <span>Express</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="tech-badge">
-                            <span>JavaScript</span>
+
+                        <!-- Python Backend -->
+                        <div>
+                            <h4 class="text-lg font-medium text-gray-400 mb-3">Python</h4>
+                            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-4">
+                                <div class="tech-badge">
+                                    <span>Flask</span>
+                                </div>
+                                <div class="tech-badge">
+                                    <span>FastAPI</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="tech-badge">
-                            <span>Python</span>
+                    </div>
+
+                    <!-- Database Technologies -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold text-purple-300 mb-4">Base de Datos</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+                            <div class="tech-badge">
+                                <span>MySQL</span>
+                            </div>
+                            <div class="tech-badge">
+                                <span>PostgreSQL</span>
+                            </div>
+                            <div class="tech-badge">
+                                <span>Supabase</span>
+                            </div>
                         </div>
-                        <div class="tech-badge">
-                            <span>Flask</span>
-                        </div>
-                        <div class="tech-badge">
-                            <span>FastAPI</span>
-                        </div>
-                        <div class="tech-badge">
-                            <span>Node.js</span>
-                        </div>
-                        <div class="tech-badge">
-                            <span>React</span>
-                        </div>
-                        <div class="tech-badge">
-                            <span>Vue</span>
-                        </div>
-                        <div class="tech-badge">
-                            <span>MySQL</span>
-                        </div>
-                        <div class="tech-badge">
-                            <span>PostgreSQL</span>
-                        </div>
-                        <div class="tech-badge">
-                            <span>Docker</span>
+                    </div>
+
+                    <!-- DevOps/Other -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-purple-300 mb-4">DevOps</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+                            <div class="tech-badge">
+                                <span>Docker</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -346,6 +387,11 @@
 
         // Image Modal functions
         function openModal(imageSrc, imageAlt) {
+            // No abrir modal en dispositivos móviles
+            if (window.innerWidth <= 768) {
+                return;
+            }
+            
             const modal = document.getElementById('imageModal');
             const modalImg = document.getElementById('modalImage');
             const modalTitle = document.getElementById('modalTitle');
