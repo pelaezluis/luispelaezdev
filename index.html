@@ -147,7 +147,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project Card 1 -->
                 <div class="project-card group">
-                    <div class="project-image">
+                    <div class="project-image cursor-pointer" onclick="openModal('assets/tours_colombia.png', 'Tours Colombia')">
                         <img src="assets/tours_colombia.png" alt="Tours Colombia">
                     </div>
                     <div class="p-6">
@@ -174,7 +174,7 @@
 
                 <!-- Project Card 2 -->
                 <div class="project-card group">
-                    <div class="project-image">
+                    <div class="project-image cursor-pointer" onclick="openModal('assets/blog_historias.png', 'Blog de Historias')">
                         <img src="assets/blog_historias.png" alt="Blog de Historias">
                     </div>
                     <div class="p-6">
@@ -200,7 +200,7 @@
 
                 <!-- Project Card 3 -->
                 <div class="project-card group">
-                    <div class="project-image">
+                    <div class="project-image cursor-pointer" onclick="openModal('assets/ecommerce.png', 'Ecommerce Frontend')">
                         <img src="assets/ecommerce.png" alt="Ecommerce Frontend">
                     </div>
                     <div class="p-6">
@@ -288,6 +288,20 @@
         </div>
     </footer>
 
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal hidden">
+        <div id="modalOverlay" class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()" aria-label="Cerrar">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <h3 id="modalTitle" class="modal-title"></h3>
+            <img id="modalImage" src="" alt="" class="modal-image">
+        </div>
+    </div>
+
     <script>
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -328,6 +342,40 @@
             
             // Abrir el cliente de correo
             window.location.href = mailtoLink;
+        });
+
+        // Image Modal functions
+        function openModal(imageSrc, imageAlt) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const modalTitle = document.getElementById('modalTitle');
+            
+            modalImg.src = imageSrc;
+            modalImg.alt = imageAlt;
+            modalTitle.textContent = imageAlt;
+            
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on overlay click
+        document.getElementById('modalOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
         });
     </script>
 </body>
